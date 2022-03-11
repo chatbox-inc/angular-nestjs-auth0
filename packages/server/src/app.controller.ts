@@ -1,5 +1,6 @@
-import {Body, Controller, Get, Post} from '@nestjs/common';
+import {Body, Controller, Get, Post, Request, UseGuards} from '@nestjs/common';
 import { AppService } from './app.service';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller()
 export class AppController {
@@ -19,5 +20,13 @@ export class AppController {
     return {
       "hello": "hello"
     };
+  }
+
+  @UseGuards(AuthGuard("jwt"))
+  @Get("profile")
+  async profile(@Request() req){
+    const result = await this.appService.profile(req.user.sub as string)
+    console.log(result)
+    return {hoge:"piyo",payload: req.user,user:result}
   }
 }

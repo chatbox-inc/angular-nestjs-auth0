@@ -5,6 +5,8 @@ import { AppService } from './app.service';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { ConfigModule } from '@nestjs/config';
+import {PassportModule} from "@nestjs/passport";
+import {JwtStrategy} from "./jwt.strategy";
 
 @Module({
   imports: [
@@ -15,8 +17,9 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot({
       envFilePath: __dirname+'/../../../.env',
     }),
+    PassportModule.register({ defaultStrategy: 'jwt' })
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService,JwtStrategy],
 })
 export class AppModule {}

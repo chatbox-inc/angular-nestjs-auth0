@@ -33,4 +33,10 @@ export class AppService {
       email_verified: true,
     })
   }
+
+  async profile(id: string): Promise<any> {
+    return await this.manageClient.getUser({
+      id
+    })
+  }
 }

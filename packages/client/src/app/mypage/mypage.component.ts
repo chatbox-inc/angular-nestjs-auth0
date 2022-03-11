@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "@auth0/auth0-angular";
+import {HttpClient} from "@angular/common/http";
+import {map, switchMap} from "rxjs/operators";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-mypage',
@@ -8,9 +11,21 @@ import {AuthService} from "@auth0/auth0-angular";
 })
 export class MypageComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  public apiUser$:Observable<any>;
+
+  constructor(public auth: AuthService, private client: HttpClient) {
+    this.apiUser$ = this.auth.user$.pipe(
+      switchMap(()=>{
+        return this.client.get("/api/profile")
+      }),
+      map((r:any) => r.user)
+    )
+  }
 
   ngOnInit(): void {
+    this.apiUser$.subscribe(r=>{
+      console.log(r)
+    })
   }
 
 }
