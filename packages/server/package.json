@@ -9,7 +9,7 @@
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "start": "nest start --watch --debug",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -22,9 +22,11 @@
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
+    "@nestjs/config": "^1.2.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/serve-static": "^2.2.2",
+    "auth0": "^2.40.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"
