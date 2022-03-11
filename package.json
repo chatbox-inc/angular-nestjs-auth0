@@ -8,6 +8,7 @@
     "build": "lerna run build --stream"
   },
   "devDependencies": {
+    "@angular/cli": "^13.2.6",
     "lerna": "^4.0.0"
   }
 }
