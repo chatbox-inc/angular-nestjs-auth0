@@ -1,5 +1,5 @@
 <div class="my-5">ようこそ、マイページへ</div>
 
-<div class="mb-5">
-  あなたの名前は Tom Brown ですね
+<div *ngIf="auth.user$ | async as user">
+  あなたの名前は {{user.name}} ですね
 </div>

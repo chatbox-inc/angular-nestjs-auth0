@@ -17,6 +17,11 @@ import {AuthModule} from "@auth0/auth0-angular";
   ],
   imports: [
     BrowserModule,
+    AuthModule.forRoot({
+      domain: 'royal-night-6877.us.auth0.com',
+      clientId: '6DSRWil86qd60cq5jxIcaiSNqMHBeZCp',
+      redirectUri: window.location.origin + "/mypage"
+    }),
     AppRoutingModule,
   ],
   providers: [],
