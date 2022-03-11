@@ -8,6 +8,7 @@
     "build": "lerna run build --stream"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^13.2.6",
     "@angular/cli": "^13.2.6",
     "@nestjs/cli": "^8.2.2",
     "lerna": "^4.0.0"
