@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@angular/cli": "^13.2.6",
+    "@nestjs/cli": "^8.2.2",
     "lerna": "^4.0.0"
   }
 }
