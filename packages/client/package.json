@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config src/proxy.conf.json",
-    "build": "ng build",
+    "build": "NODE_ENV=production ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "~12.1.2",
     "@angular/router": "~12.1.2",
     "@auth0/auth0-angular": "^1.9.0",
+    "auth0-js": "^9.19.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
@@ -29,7 +30,7 @@
     "@angular/compiler-cli": "~12.1.2",
     "@tailwindcss/forms": "^0.3.4",
     "@types/jasmine": "~3.8.0",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.20.47",
     "autoprefixer": "^10.4.2",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
